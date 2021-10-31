@@ -1,5 +1,6 @@
 
 const express = require('express');
+const path = require('path');
 const app = express(),
       bodyParser = require("body-parser");
       port = 3080;
@@ -8,7 +9,7 @@ const orders = [];
 
 
 app.use(bodyParser.json());
-app.use(express.static(process.cwd()+"/dist/widget-list/"));
+app.use(express.static(__dirname + '/../dist/widgetList'));
 
 function checkOrder(qty){
 
@@ -87,10 +88,10 @@ app.post('/api/order', (req, res) => {
   res.json(orders);
 });
 
-app.get('/', (req,res) => {
-  res.sendFile(process.cwd()+"/dist/widget-list/index.html")
+app.get('/*', (req,res) => {
+  res.sendFile('index.html',{root:'../dist/widgetList'})
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Server listening on the port::${port}`);
 });
