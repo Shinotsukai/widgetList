@@ -27,7 +27,7 @@ export class ListScreenComponent implements OnInit {
 
   resetList(){
  this.apiService.resetOrders(true).pipe(takeUntil(this.destroy$)).subscribe(data =>{
-
+  this.orders =[]
 });
   }
 
