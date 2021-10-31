@@ -4,6 +4,7 @@
     <div class="box">
         <input class="input mb-4" type="number" placeholder="Enter order quantity" [(ngModel)]="orderQty">
         <button class="button is-fullwidth mb-4 is-info" (click)="onSubmit()">Calculate Pack Size</button>
+        <button class="button is-fullwidth mb-4 is-info" (click)="resetList()">Clear Packs</button>
     </div>
 
 <div class="card mb-4" *ngFor="let order of orders">

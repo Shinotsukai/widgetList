@@ -79,6 +79,15 @@ app.get('/api/order', (req, res) => {
   res.json(orders);
 });
 
+app.post('/api/reset',(req,res)=>{
+
+    if(req.body.reset){
+
+        orders.splice(0,orders.length)
+    }
+    res.json(orders);
+});
+
 app.post('/api/order', (req, res) => {
   const order = req.body.qty;
 

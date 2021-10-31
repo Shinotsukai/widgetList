@@ -17,4 +17,8 @@ export class ApiService {
   newOrder(qty:number){
     return this.http.post(this.rootURL+'/order',{qty})
   }
+
+  resetOrders(reset:boolean){
+    return this.http.post(this.rootURL+'/reset',{reset})
+  }
 }

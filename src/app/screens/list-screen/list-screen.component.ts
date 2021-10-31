@@ -10,7 +10,9 @@ import { Subject } from 'rxjs';
 })
 export class ListScreenComponent implements OnInit {
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService) { 
+
+  }
 
   orders:any[]=[];
   orderCount = 0;
@@ -20,6 +22,13 @@ export class ListScreenComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.resetList()
+  }
+
+  resetList(){
+ this.apiService.resetOrders(true).pipe(takeUntil(this.destroy$)).subscribe(data =>{
+
+});
   }
 
   onSubmit(){
