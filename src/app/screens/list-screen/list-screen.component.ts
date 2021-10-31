@@ -25,7 +25,6 @@ export class ListScreenComponent implements OnInit {
   onSubmit(){
     if(this.orderQty > 0){
       this.apiService.newOrder(this.orderQty).pipe(takeUntil(this.destroy$)).subscribe(data =>{
-        console.log('message:',data);
         this.orderCount =this.orderCount + 1;
       })
   
@@ -36,10 +35,8 @@ export class ListScreenComponent implements OnInit {
 
   getAllOrders(){
     this.apiService.getWidgetOrders().pipe(takeUntil(this.destroy$)).subscribe((orders:any)=>{
-      console.log(orders)
       this.orders = orders;
     });
-
   }
 
 }

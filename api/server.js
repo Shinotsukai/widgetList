@@ -23,7 +23,6 @@ function checkOrder(qty){
 
 function checkQty(counter, orderTotal){
     while(counter > 0){
-console.log(counter)
         switch(true){
             case(counter >= 5000):
             addWidgets(5000,orderTotal);
