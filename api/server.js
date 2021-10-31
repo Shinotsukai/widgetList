@@ -9,7 +9,7 @@ const orders = [];
 
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/../dist/widgetList'));
+app.use(express.static(__dirname + '/dist/widgetList'));
 
 function checkOrder(qty){
 
@@ -89,7 +89,7 @@ app.post('/api/order', (req, res) => {
 });
 
 app.get('/*', (req,res) => {
-  res.sendFile('index.html',{root:'../dist/widgetList'})
+  res.sendFile('index.html',{root:'dist/widgetList'})
 });
 
 app.listen(process.env.PORT || port, () => {
